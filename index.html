@@ -13,26 +13,27 @@
       font-size: 1.6rem;
       margin-bottom: 1.5rem;
     }
-    .dropdown {
+    select {
+      font-size: 1rem;
+      padding: 0.5rem;
       margin-bottom: 2rem;
+    }
+    .content-section {
+      display: none;
+      background: #fff;
       border: 1px solid #ccc;
       border-radius: 10px;
-      background: #fff;
+      padding: 1rem 2rem;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
     }
-    .dropdown summary {
-      font-weight: bold;
-      font-size: 1.2rem;
-      cursor: pointer;
-      padding: 1rem;
-      background: #e0e7ef;
-      border-radius: 10px 10px 0 0;
+    .content-section.active {
+      display: block;
     }
-    .dropdown ul {
+    .content-section ul {
       list-style: disc;
-      padding: 1rem 2rem;
+      padding-left: 1.5rem;
     }
-    .dropdown li {
+    .content-section li {
       margin-bottom: 1rem;
     }
     .ref {
@@ -44,85 +45,95 @@
   </style>
 </head>
 <body>
-  <h1>N.J.A.C. 7:8 Stormwater Management Design Requirements</h1>
+  <h1>N.J.A.C. 7:8 Stormwater Management</h1>
 
-  <details class="dropdown">
-    <summary>Stormwater Design Requirements</summary>
+  <label for="designDropdown"><strong>Design Requirements:</strong></label>
+  <select id="designDropdown">
+    <option value="">-- Select a Category --</option>
+    <option value="plan">Stormwater Management Plan</option>
+    <option value="recharge">Groundwater Recharge</option>
+    <option value="quantity">Runoff Quantity Control</option>
+    <option value="quality">Runoff Quality Standards</option>
+    <option value="nonstructural">Non-structural Strategies</option>
+    <option value="maintenance">Maintenance Requirements</option>
+  </select>
+
+  <div id="plan" class="content-section">
     <ul>
       <li>
-        <strong>Stormwater Management Plan</strong>
-        <ul>
-          <li>
-            Must include structural and non-structural measures
-            <span class="ref">(Page 12, "A stormwater management plan shall include structural and nonstructural...")</span>
-          </li>
-          <li>
-            Must incorporate safety standards for stormwater basins
-            <span class="ref">(Page 12, "...shall incorporate the safety standards...")</span>
-          </li>
-          <li>
-            Must consider ecological and physical site conditions
-            <span class="ref">(Page 12, "...shall consider the physical characteristics and ecological resources...")</span>
-          </li>
-          <li>
-            Must be coordinated with other stormwater plans
-            <span class="ref">(Page 12, "...shall be coordinated with any other stormwater management plans...")</span>
-          </li>
-        </ul>
+        Include structural and non-structural strategies
+        <span class="ref">(Page 12, "A stormwater management plan shall include structural and nonstructural...")</span>
       </li>
-
       <li>
-        <strong>Groundwater Recharge</strong>
-        <ul>
-          <li>
-            Must maintain 100% of average annual pre-development recharge volume
-            <span class="ref">(Page 28, "...shall be designed to maintain 100 percent of the average annual pre-construction groundwater recharge...")</span>
-          </li>
-        </ul>
+        Incorporate safety standards for stormwater basins
+        <span class="ref">(Page 12, "...shall incorporate the safety standards...")</span>
       </li>
-
       <li>
-        <strong>Runoff Quantity Control</strong>
-        <ul>
-          <li>
-            Must reduce post-construction peak runoff for 2-, 10-, and 100-year storms
-            <span class="ref">(Page 29, "...shall be designed to reduce the post-construction peak flow rates... 50, 75, and 80 percent...")</span>
-          </li>
-        </ul>
+        Consider ecological and physical site conditions
+        <span class="ref">(Page 12, "...shall consider the physical characteristics and ecological resources...")</span>
       </li>
-
       <li>
-        <strong>Runoff Quality Standards</strong>
-        <ul>
-          <li>
-            Must remove 80% of TSS from post-construction runoff
-            <span class="ref">(Page 30, "...shall be designed to reduce the post-construction load of total suspended solids (TSS) by 80 percent...")</span>
-          </li>
-        </ul>
+        Coordinate with other stormwater plans
+        <span class="ref">(Page 12, "...shall be coordinated with any other stormwater management plans...")</span>
       </li>
-
-      <li>
-        <strong>Non-structural Strategies</strong>
-        <ul>
-          <li>
-            Must evaluate non-structural strategies before structural BMPs are used
-            <span class="ref">(Page 27, "...the development shall incorporate nonstructural stormwater management strategies to the maximum extent practicable...")</span>
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        <strong>Maintenance Requirements</strong>
-        <ul>
-          <li>
-            A maintenance plan is required for all stormwater measures
-            <span class="ref">(Page 32, "The design engineer shall prepare a maintenance plan for the stormwater management measures incorporated into the design of a major development...")</span>
-          </li>
-        </ul>
-      </li>
-
     </ul>
-  </details>
+  </div>
 
+  <div id="recharge" class="content-section">
+    <ul>
+      <li>
+        Maintain 100% of annual pre-development recharge volume
+        <span class="ref">(Page 28, "...shall be designed to maintain 100 percent of the average annual pre-construction groundwater recharge...")</span>
+      </li>
+    </ul>
+  </div>
+
+  <div id="quantity" class="content-section">
+    <ul>
+      <li>
+        Reduce peak runoff for 2-, 10-, and 100-year storms
+        <span class="ref">(Page 29, "...shall be designed to reduce the post-construction peak flow rates... 50, 75, and 80 percent...")</span>
+      </li>
+    </ul>
+  </div>
+
+  <div id="quality" class="content-section">
+    <ul>
+      <li>
+        Remove 80% of TSS from post-construction runoff
+        <span class="ref">(Page 30, "...shall be designed to reduce the post-construction load of total suspended solids (TSS) by 80 percent...")</span>
+      </li>
+    </ul>
+  </div>
+
+  <div id="nonstructural" class="content-section">
+    <ul>
+      <li>
+        Evaluate non-structural strategies before structural BMPs
+        <span class="ref">(Page 27, "...the development shall incorporate nonstructural stormwater management strategies to the maximum extent practicable...")</span>
+      </li>
+    </ul>
+  </div>
+
+  <div id="maintenance" class="content-section">
+    <ul>
+      <li>
+        Maintenance plan required for all stormwater measures
+        <span class="ref">(Page 32, "The design engineer shall prepare a maintenance plan for the stormwater management measures incorporated into the design of a major development...")</span>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const dropdown = document.getElementById("designDropdown");
+    const sections = document.querySelectorAll(".content-section");
+
+    dropdown.addEventListener("change", function () {
+      sections.forEach(section => section.classList.remove("active"));
+      if (this.value) {
+        document.getElementById(this.value).classList.add("active");
+      }
+    });
+  </script>
 </body>
 </html>
